@@ -2,6 +2,7 @@
 public class BinaryTree<E> implements Comparable<BinaryTree>{
 	protected E valor;
 	protected int frecuencia;
+	protected boolean isLeft;
 	
 	protected BinaryTree<E> parent;
 	protected BinaryTree<E> left,right;
@@ -46,6 +47,7 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 			left.setParent(null);			
 		}
 		left = newleft;
+		isLeft = true;
 		left.setParent(this);
 	}
 	public void setRight(BinaryTree<E> newright){
@@ -99,5 +101,9 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 		if(this.getFrecuencia() == o.getFrecuencia() && this.getE() == o.getE())return 0;
 		if(this.getFrecuencia() > o.getFrecuencia()) return 1;
 		return -1;
+	}
+	public boolean IsLeft(){
+		return isLeft;
+		
 	}
 } 

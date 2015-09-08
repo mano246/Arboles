@@ -5,12 +5,14 @@ import java.util.TreeSet;
 
 public class Codificador {
 	private String Decodificada;
+	private VectorHeap<String> VH;
 	private Set<String> sets = new HashSet<String>();
 	private static Set<BinaryTree> Heap2 = new TreeSet<BinaryTree>();
 	private SkewHeap<String> Heap= new SkewHeap<String>();
 	
 	public Codificador(String DEC){
 		this.Decodificada = DEC;
+		VH = new VectorHeap<String>();
 	}
 	
 	public void Decodificar (){
@@ -18,8 +20,7 @@ public class Codificador {
 			char nuevo = Decodificada.charAt(i);
 			String Valor = Character.toString(nuevo);
 			sets.add(Valor);
-		}
-		
+		}	
 		for(Iterator<String> ir = sets.iterator(); ir.hasNext();){
 			int frecuencia = 0;
 			String Valor = ir.next();
@@ -30,17 +31,13 @@ public class Codificador {
 				}
 			}
 			BinaryTree<String> nuevo = new BinaryTree<String>(Valor,frecuencia,null,null);
-			Agregar(nuevo);
+			VH.Agregarorden(nuevo);
 		}
+		
+		VH.AgregarHeap();
+		VH.crear();
 	}
 
-	public String getDecodificada() {
-		return Decodificada;
-	}
-
-	public void setDecodificada(String decodificada) {
-		Decodificada = decodificada;
-	}
 	public static void Agregar(BinaryTree modificado){
 		Heap2.add(modificado);
 	}
