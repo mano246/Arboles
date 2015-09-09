@@ -68,7 +68,7 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 		}
 	}
 	
-	protected void setRaiz(BinaryTree<E> Raiz){
+	protected void setRaiz(){
 		raiz = true;
 	}
 	public boolean isEmpty(){
