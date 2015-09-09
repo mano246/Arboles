@@ -3,6 +3,7 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 	protected E valor;
 	protected int frecuencia;
 	protected boolean isLeft;
+	protected boolean raiz;
 	
 	protected BinaryTree<E> parent;
 	protected BinaryTree<E> left,right;
@@ -67,6 +68,9 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 		}
 	}
 	
+	protected void setRaiz(BinaryTree<E> Raiz){
+		raiz = true;
+	}
 	public boolean isEmpty(){
 		if(valor == null && frecuencia == 0){
 			boolean cual = true;
