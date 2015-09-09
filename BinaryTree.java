@@ -2,6 +2,7 @@
 public class BinaryTree<E> implements Comparable<BinaryTree>{
 	protected E valor;
 	protected int frecuencia;
+	protected boolean raiz;
 	protected boolean isLeft;
 	
 	protected BinaryTree<E> parent;
@@ -23,14 +24,17 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 	public BinaryTree(E val,int Frec,BinaryTree<E> left, BinaryTree<E> right ){
 		this.frecuencia = Frec;
 		this.valor = val;
+		raiz = false;
 		parent = null;
 		this.left = left;
 		this.right = right;
 	}
 	public BinaryTree(E val,BinaryTree<E> left, BinaryTree<E> right){
 		this.valor = val;
+		raiz = false;
 		if(left == null){
 			left = new BinaryTree<E>();
+			if(left.get)
 		}
 		setLeft(left);
 		if(right == null){
@@ -65,6 +69,13 @@ public class BinaryTree<E> implements Comparable<BinaryTree>{
 		if(!isEmpty()){
 			parent = newParent;
 		}
+	}
+	
+	protected BinaryTree<E> getParent(){
+		if(!isEmpty()){
+			return parent;
+		}
+		
 	}
 	
 	public boolean isEmpty(){
